@@ -17,8 +17,8 @@
       <pubDate>Tue, 07 Aug 2018 19:29:57 -0500</pubDate>
       
       <guid>https://charmeleon.github.io/post/fibonacci-series/</guid>
-      <description>I&amp;rsquo;ve recently been studying algorithm problems. I&amp;rsquo;m still in the early stages of this trek, but I have come to the conclusion that coming up with the right solution is not that important. I find it more valuable to be able to attack a problem with multiple strategies (code examples are written in JavaScript).
-As a first example, take the Fibonacci series where the sequence is defined by the recurrence relation F(n) = F(n - 1) + F(n - 2), with seed values F(0) = 1 and F(1) = 1.</description>
+      <description>I&amp;rsquo;ve been studying algorithms lately. I&amp;rsquo;m still in the early stages of this trek, but I have concluded that coming up with the right solution is not that important. It&amp;rsquo;s far more valuable to be able to attack a problem with multiple strategies (note: code examples are written in JavaScript).
+As an example, take the Fibonacci series where the nth Fibonacci number is defined by the recurrence relation F(n) = F(n - 1) + F(n - 2), and the definitions F(0) = 1 and F(1) = 1.</description>
     </item>
     
   </channel>

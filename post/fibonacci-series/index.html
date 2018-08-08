@@ -77,15 +77,15 @@
                     </div>
                     
                     <div class="post-description">
-                        <p>I&rsquo;ve recently been studying algorithm problems. I&rsquo;m still in the early stages
-of this trek, but I have come to the conclusion that coming up with the right
-solution is not that important. I find it more valuable to be able to attack a
-problem with multiple strategies (<em>code examples are written in JavaScript</em>).</p>
+                        <p>I&rsquo;ve been studying algorithms lately. I&rsquo;m still in the early stages
+of this trek, but I have concluded that coming up with the right
+solution is not that important. It&rsquo;s far more valuable to be able to attack a
+problem with multiple strategies (<em>note: code examples are written in JavaScript</em>).</p>
 
-<p>As a first example, take the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci series</a>
-where the sequence is defined by the recurrence relation
- <code>F(n) = F(n - 1) + F(n - 2)</code>, with seed values <code>F(0) = 1</code> and <code>F(1) = 1</code>.
-It&rsquo;s a recurrence relation, and as far as algorithms go, I think it&rsquo;s the most
+<p>As an example, take the <a href="https://en.wikipedia.org/wiki/Fibonacci_number">Fibonacci series</a>
+where the n<sup>th</sup> Fibonacci number is defined by the recurrence relation
+ <code>F(n) = F(n - 1) + F(n - 2)</code>, and the definitions <code>F(0) = 1</code> and <code>F(1) = 1</code>.
+It&rsquo;s a recurrence relation, and as far as algorithms go, I find it the most
 naturally recursive problem.</p>
 
 <p>To write a function that is able to generate the n<sup>th</sup> Fibonacci number
@@ -99,22 +99,21 @@ naturally recursive problem.</p>
 }
 </code></pre>
 
-<p>It&rsquo;s evident that this function satisfies the recurrent relation and the seed
-values: calling <code>fibonacci(0)</code> or <code>fibonacci(1)</code> will be trapped by the <code>if</code>
-statement (since one and zero are less than 2), and the result is one, and
-for numbers two and above, the result is the sum of the previous two Fibonacci
-numbers.</p>
+<p>It&rsquo;s evident that this function satisfies the recurrence relation and the
+definitions: calling <code>fibonacci(0)</code> or <code>fibonacci(1)</code> will return <code>1</code> (since
+one and zero are less than 2); and for numbers two and above, the result is the
+sum of the previous two Fibonacci numbers.</p>
 
 <p>Although mathematically correct, this solution is computationally inefficient.
-You can read up some literature and discover that the runtime complexity is
+You can read some of the literature to discover that the runtime complexity is
 <em>O(2<sup>n</sup>)</em> (really <em>1.6<sup>n</sup>)</em>.</p>
 
-<p>In an effort to be able to calculate larger Fibonacci numbers faster, we can
+<p>In an effort to be able to calculate larger Fibonacci numbers, we
 recognize that <code>fibonacci(3 - 1)</code> returns the same value as <code>fibonacci(4 - 2)</code>
 and we can avoid computing the same Fibonacci number by storing previously
 calculated values. This technique is called memoization:</p>
 
-<pre><code class="language-javascript">// Initialize our map with the seed values
+<pre><code class="language-javascript">// Initialize our map object with the seed values
 var previous = {
     0: 1,
     1: 1
@@ -131,13 +130,14 @@ function fibonacci(n) {
 </code></pre>
 
 <p>This way a Fibonacci number is calculated only once - our runtime complexity is
-<code>O(n)</code>. Since we now have to store previously calculated values our storage
+<code>O(n)</code>. We now have to store all previously calculated values so our storage
 complexity is also <code>O(n)</code> (we store every result up to <code>F(n)</code>), which is not
 a problem for small enough values of <code>n</code>.</p>
 
-<p>There is one approach where we can keep our linear complexity without keeping
-every previous Fibonacci number in memory, meaning. This approach requires a
-little more analysis to realize that a non-recursive approach is possible:</p>
+<p>There is one approach where we can still calculate in linear time without
+keeping every previous Fibonacci number in memory. This approach requires
+careful analysis to realize that a non-recursive approach is possible by
+retaining <code>F(n-1)</code> and <code>F(n - 2)</code> in variables:</p>
 
 <pre><code class="language-javascript">function fibonacci(n) {
     var res1 = 1;
@@ -161,16 +161,15 @@ little more analysis to realize that a non-recursive approach is possible:</p>
 }
 </code></pre>
 
-<p>This gives us an <code>O(n)</code> runtime complexity with an <code>O(1)</code> storage size, the
-best of both worlds.</p>
+<p>This gives us an <code>O(n)</code> runtime complexity and our storage does not need to
+grow regardless of how large <code>n</code> is.</p>
 
-<p>This is not a unique property of the Fibonacci series. There are many
-algorithmic problems where a variety of solutions will satisfy the problem
+<p>There are many problems where a variety of solutions will satisfy the problem
 exactly, and one approach is likely to be much better than others. The
 unoptimized solution is typically straightforward enough to write the first time
-encountering the problem, but the others require a more exposure and familiarity
-with similar enough problems to approach in that fashion. I will write about
-a few more problems where we can see this again.</p>
+encountering the problem, but the others require more exposure and familiarity
+with similar problems to approach in more creative ways. I will continue to
+write about such problems in the next blog post.</p>
 
                     </div>
                     
