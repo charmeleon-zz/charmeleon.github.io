@@ -3,6 +3,35 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://charmeleon.github.io/post/invalid-hook-call/</loc>
+    <lastmod>2019-08-10T08:11:18-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://charmeleon.github.io/post/</loc>
+    <lastmod>2019-08-10T08:11:18-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://charmeleon.github.io/tags/</loc>
+    <lastmod>2019-08-10T08:11:18-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://charmeleon.github.io/</loc>
+    <lastmod>2019-08-10T08:11:18-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://charmeleon.github.io/tags/react-javascript-warning-yarn/</loc>
+    <lastmod>2019-08-10T08:11:18-05:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://charmeleon.github.io/post/beyond-todo-apps/</loc>
     <lastmod>2018-08-11T10:28:01-05:00</lastmod>
   </url>
@@ -13,30 +42,14 @@
   </url>
   
   <url>
-    <loc>https://charmeleon.github.io/post/react-typescript-tic-tac-toe/</loc>
-    <lastmod>2018-05-28T19:33:57-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charmeleon.github.io/post/welcome-hugo/</loc>
-    <lastmod>2017-08-20T19:15:39-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://charmeleon.github.io/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://charmeleon.github.io/tags/fibonacci-recursion-memoization-dynamic-programming/</loc>
     <lastmod>2018-08-07T19:29:57-05:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://charmeleon.github.io/post/</loc>
-    <lastmod>2018-08-11T10:28:01-05:00</lastmod>
-    <priority>0</priority>
+    <loc>https://charmeleon.github.io/post/react-typescript-tic-tac-toe/</loc>
+    <lastmod>2018-05-28T19:33:57-05:00</lastmod>
   </url>
   
   <url>
@@ -46,14 +59,12 @@
   </url>
   
   <url>
-    <loc>https://charmeleon.github.io/tags/</loc>
-    <lastmod>2018-08-07T19:29:57-05:00</lastmod>
-    <priority>0</priority>
+    <loc>https://charmeleon.github.io/post/welcome-hugo/</loc>
+    <lastmod>2017-08-20T19:15:39-05:00</lastmod>
   </url>
   
   <url>
-    <loc>https://charmeleon.github.io/</loc>
-    <lastmod>2018-08-11T10:28:01-05:00</lastmod>
+    <loc>https://charmeleon.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
