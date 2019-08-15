@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizing Frontend Projects &middot; celeritas</title>
+
+    <meta name="description" content="">
+
+    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Organizing Frontend Projects &middot; celeritas">
+    <meta name="twitter:description" content="">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Organizing Frontend Projects &middot; celeritas">
+    <meta property="og:description" content="">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+
+    <link rel="stylesheet" href="https://charmeleon.github.io//css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="celeritas" href="https://charmeleon.github.io//index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="https://charmeleon.github.io/">celeritas</a></h1>
+            <h2 class="brand-tagline"></h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://charmeleon.github.io//index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                <h1 class="content-subhead">11 Aug 2019, 12:46</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="https://charmeleon.github.io/post/organizing-frontend-projects/" class="post-title">Organizing Frontend Projects</a>
+
+                        <p class="post-meta">
+                            
+                            
+                        </p>
+                    </header>
+                    
+                    <div class="post-share">
+                        <div class="post-share-links">
+                            <h4 style="">Share</h4>
+                            
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="post-description">
+                        
+
+<p>A frequent question with frontend projects is how they should be structured.
+Not too long ago a single PHP file was enough for backend, HTML and JS/CSS
+logic; but with increasing complexity the need to organize in sensible fashion
+has become obvious. What is less obvious is your options, so let&rsquo;s go over
+some.</p>
+
+<p>Starting a new <code>React</code> project, the scaffolding provided by <code>create-react-app</code>
+is simple enough for a UI project:</p>
+
+<pre><code class="language-bash">├── package.json
+├── package-lock.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+├── README.md
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    └── logo.svg
+</code></pre>
+
+<p>The <code>public</code> directory can remain untouched even for very large projects. With
+smaller projects in mind, let&rsquo;s review what the <code>src</code> directory should
+look like.</p>
+
+<h2 id="a-flat-project">A Flat Project</h2>
+
+<p>The first option is to use a completely flat structure, sticking with what&rsquo;s
+provided out of the box by <code>create-react-app</code>.</p>
+
+<pre><code class="language-bash">src/
+├── App.css
+├── App.js
+├── App.test.js
+├── Dropdown.css
+├── Dropdown.jsx
+├── Dropdown.test.js
+├── index.css
+├── index.js
+├── Input.css
+├── Input.jsx
+├── Input.test.js
+└── logo.svg
+</code></pre>
+
+<p>This can be alright for prototypes and toy projects.</p>
+
+<h2 id="logical-grouping">Logical Grouping</h2>
+
+<p>Another option is to logically group slices of functionality. This isolates
+application responsibilities and can reduce the cognitive load for finding
+a piece of functionality even as the project grows in size. It makes sense
+to consider this if your application is using (or will use) <code>redux</code> since
+it&rsquo;s used in several popular tutorials, increasing the chance that new members
+will be able to find their way around your codebase relatively quickly.</p>
+
+<pre><code class="language-bash">src/
+├── App.css
+├── App.js
+├── App.test.js
+├── index.css
+├── index.js
+├── logo.svg
+├── actions
+│   └── index.js
+├── components
+│   ├── Dropdown.css
+│   ├── Dropdown.jsx
+│   ├── Dropdown.test.js
+│   ├── index.js
+│   ├── Input.css
+│   ├── Input.jsx
+│   └── Input.test.js
+├── containers
+│   ├── index.js
+│   ├── OptionChangedReducer.js
+│   └── OptionChangedReducer.test.js
+├── reducers
+│   ├── index.js
+│   └── InputActions.js
+└── selectors
+    ├── index.js
+    ├── InputActionsSelector.js
+    └── InputActionsSelector.test.js
+</code></pre>
+
+<p>Note that each directory under <code>src</code> now has an <code>index.js</code>; they are now modules
+and the <code>index.js</code> file can be used to define the public functionality exposed
+by each of them. In the case of the <code>components</code> directory you can expect to
+see the <code>Dropdown</code> and <code>Input</code> components exported; this also makes it so
+your bundler (<code>webpack</code> or <code>rollup</code> or <code>parcel</code> or <code>bazel</code>) doesn&rsquo;t pickup your
+test files or dependencies since they are not imported via your entry points:</p>
+
+<pre><code class="language-javascript">export * from './Dropdown';
+export * from './Input';
+</code></pre>
+
+<h2 id="group-by-feature">Group by Feature</h2>
+
+<p>A third option is to group files such that the contents of the module
+directories represent a complete feature. This is less common but can be
+effective if your project is growing large and it&rsquo;ll be difficult to locate
+files when grouped logically (imagine having 50+ components and finding a file
+through that!).</p>
+
+<p>This structure also lends itself to nesting for sub-features in future
+improvements, such as contexts, higher-order components, etc.</p>
+
+<pre><code class="language-bash">src/
+├── App.css
+├── App.js
+├── App.test.js
+├── index.css
+├── index.js
+├── logo.svg
+├── Dashboard
+│   ├── Dashboard.css
+│   ├── Dashboard.jsx
+│   ├── dashboardReducer.js
+│   ├── dashboardReducer.test.js
+│   ├── dashboardSelectors.js
+│   ├── dashboardSelectors.test.js
+│   ├── Dashboard.test.jsx
+│   └── index.js
+├── Feed
+│   ├── Entry.css
+│   ├── Entry.jsx
+│   ├── Entry.test.jsx
+│   ├── Feed.css
+│   ├── Feed.jsx
+│   ├── Feed.test.jsx
+│   └── index.js
+└── Header
+    ├── Header.css
+    ├── Header.jsx
+    ├── headerReducer.js
+    ├── headerReducer.test.js
+    ├── headerSelectors.js
+    ├── headerSelectors.test.js
+    ├── Header.test.jsx
+    └── index.js
+</code></pre>
+
+<h2 id="isolating-tests">Isolating tests</h2>
+
+<p>But it isn&rsquo;t necessary to have your tests alongside your code; it&rsquo;s common to
+dedicate a directory solely to contain your tests. This can be an improvement
+if your IDE allows you to mark a directory as a test directory.</p>
+
+<p>Here&rsquo;s what the Functional Grouping would look like with isolated tests:</p>
+
+<pre><code class="language-bash">src/
+├── App.css
+├── App.js
+├── App.test.js
+├── index.css
+├── index.js
+├── logo.svg
+├── actions
+│   └── index.js
+├── components
+│   ├── __tests__
+│   │   ├── Dropdown.test.jsx
+│   │   └── Input.test.jsx
+│   ├── Dropdown.css
+│   ├── Dropdown.jsx
+│   ├── index.js
+│   ├── Input.css
+│   ├── Input.jsx
+├── containers
+│   ├── __tests__
+│   │   └── OptionChangedReducer.test.js
+│   ├── index.js
+│   └── OptionChangedReducer.js
+├── reducers
+│   ├── index.js
+│   └── InputActions.js
+└── selectors
+    ├── __tests__
+    │   └── InputActionsSelector.test.js
+    ├── index.js
+    └── InputActionsSelector.js
+</code></pre>
+
+<p>This can be done similarly for a project grouped by features.</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>As frontend projects continue to grow in complexity (especially true of single
+page applications) having a few go-to strategies for organizing your code will
+prove a time-saver in the long run. Make sure you recognize the trade-offs of
+different approaches and choose carefully!</p>
+
+<p>Be on the lookout for the next installment where I will discuss large frontend
+projects.</p>
+
+                    </div>
+                    
+                </section>
+            </div>
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="https://gohugo.io/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="https://charmeleon.github.io//js/all.min.js"></script>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

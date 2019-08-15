@@ -6,10 +6,20 @@
     <description>Recent content on celeritas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Aug 2019 08:11:18 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 11 Aug 2019 12:46:18 -0500</lastBuildDate>
     
 	<atom:link href="https://charmeleon.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Organizing Frontend Projects</title>
+      <link>https://charmeleon.github.io/post/organizing-frontend-projects/</link>
+      <pubDate>Sun, 11 Aug 2019 12:46:18 -0500</pubDate>
+      
+      <guid>https://charmeleon.github.io/post/organizing-frontend-projects/</guid>
+      <description>A frequent question with frontend projects is how they should be structured. Not too long ago a single PHP file was enough for backend, HTML and JS/CSS logic; but with increasing complexity the need to organize in sensible fashion has become obvious. What is less obvious is your options, so let&amp;rsquo;s go over some.
+Starting a new React project, the scaffolding provided by create-react-app is simple enough for a UI project:</description>
+    </item>
     
     <item>
       <title>Handling Invalid Hook Call warning</title>
