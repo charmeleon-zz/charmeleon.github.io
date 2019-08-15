@@ -7,7 +7,7 @@
 
     <meta name="description" content="">
 
-    <meta name="generator" content="Hugo 0.56.3" />
+    <meta name="generator" content="Hugo 0.57.0" />
     <meta name="twitter:card" content="summary">
     
     <meta name="twitter:title" content="Posts &middot; celeritas">
@@ -141,6 +141,7 @@ will be able to find their way around your codebase relatively quickly.</p>
 ├── index.js
 ├── logo.svg
 ├── actions
+│   ├── InputActions.js
 │   └── index.js
 ├── components
 │   ├── Dropdown.css
@@ -152,11 +153,14 @@ will be able to find their way around your codebase relatively quickly.</p>
 │   └── Input.test.js
 ├── containers
 │   ├── index.js
-│   ├── OptionChangedReducer.js
-│   └── OptionChangedReducer.test.js
+│   ├── Title.js
+│   ├── Title.test.js
+│   ├── Users.js
+│   └── Users.test.js
 ├── reducers
 │   ├── index.js
-│   └── InputActions.js
+│   ├── OptionChangedReducer.js
+│   └── OptionChangedReducer.test.js
 └── selectors
     ├── index.js
     ├── InputActionsSelector.js
@@ -236,6 +240,7 @@ if your IDE allows you to mark a directory as a test directory.</p>
 ├── index.js
 ├── logo.svg
 ├── actions
+│   ├── InputActions.js
 │   └── index.js
 ├── components
 │   ├── __tests__
@@ -248,17 +253,23 @@ if your IDE allows you to mark a directory as a test directory.</p>
 │   ├── Input.jsx
 ├── containers
 │   ├── __tests__
+│   │   ├── Users.test.js
+│   │   └── Title.test.js
+│   ├── index.js
+│   ├── Users.jsx
+│   └── Title.jsx
+├── reducers
+│   ├── __tests__
 │   │   └── OptionChangedReducer.test.js
 │   ├── index.js
 │   └── OptionChangedReducer.js
-├── reducers
-│   ├── index.js
-│   └── InputActions.js
 └── selectors
     ├── __tests__
-    │   └── InputActionsSelector.test.js
+    │   ├── TitleSelectors.test.js
+    │   └── UsersSelectors.test.js
     ├── index.js
-    └── InputActionsSelector.js
+    ├── TitleSelectors.js
+    └── UsersSelectors.js
 </code></pre>
 
 <p>This can be done similarly for a project grouped by features.</p>
